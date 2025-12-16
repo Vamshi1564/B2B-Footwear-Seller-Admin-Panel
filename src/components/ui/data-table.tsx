@@ -23,7 +23,7 @@ interface DataTableProps<T> {
   emptyMessage?: string;
 }
 
-export function DataTable<T extends { id: string }>({ 
+export function DataTable<T extends { id: string | number }>({
   columns, 
   data, 
   onRowClick,

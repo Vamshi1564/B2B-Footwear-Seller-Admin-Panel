@@ -81,27 +81,33 @@ export interface Seller {
 
 // Coupon types
 export interface Coupon {
-  id: string;
+  id: number;
   code: string;
-  discountPercent: number;
-  maxDiscount: number;
-  minOrder: number;
-  validFrom: string;
-  validTo: string;
+
+  discount_type: 'percent' | 'flat';
+  discount_value: number;
+
+  min_order_value: number;
+
+  start_date: string;
+  end_date: string;
+
   status: 'active' | 'inactive';
-  retailerIds?: string[];
 }
+
 
 // Banner types
 export interface Banner {
-  id: string;
+  id: number;
   title: string;
-  imageUrl: string;
-  link?: string;
-  status: 'active' | 'inactive';
-  order: number;
-  createdAt: string;
+  image_url: string;
+  redirect_url?: string | null;
+  status: "active" | "inactive";
+  display_order: number;
+  seller_id?: number | null;
+  created_at?: string;
 }
+
 
 // Stats types
 export interface DashboardStats {
