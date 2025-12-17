@@ -22,14 +22,14 @@ export interface Retailer {
 
 // Product types
 export interface Product {
-  id: string;
+  id: number;
   title: string;
   description: string;
   mrp: number;
   wholesalePrice: number;
   discountPercent: number;
   category: string;
-  sizes: string[];
+  sizes: number;
   colors: string[];
   images: string[];
   stock: number;
