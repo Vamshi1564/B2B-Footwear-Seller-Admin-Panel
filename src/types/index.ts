@@ -1,5 +1,5 @@
 // User Roles
-export type UserRole = 'retailer' | 'seller' | 'admin' | 'fos';
+export type UserRole = "retailer" | "seller" | "admin" | "fos";
 
 // Retailer types
 export interface Retailer {
@@ -8,7 +8,7 @@ export interface Retailer {
   ownerName: string;
   email: string;
   phone: string;
-  status: 'pending' | 'approved' | 'rejected';
+  status: "pending" | "approved" | "rejected";
   gstNumber?: string;
   tradeLicense?: string;
   pan?: string;
@@ -35,7 +35,7 @@ export interface Product {
   stock: number;
   sellerId: string;
   pincodes: string[];
-  status: 'active' | 'inactive' | 'pending';
+  status: "active" | "inactive" | "pending";
   createdAt: string;
 }
 
@@ -46,10 +46,16 @@ export interface Order {
   retailerName: string;
   sellerId: string;
   items: OrderItem[];
-  status: 'pending' | 'confirmed' | 'packed' | 'shipped' | 'delivered' | 'returned';
+  status:
+    | "pending"
+    | "confirmed"
+    | "packed"
+    | "shipped"
+    | "delivered"
+    | "returned";
   totalAmount: number;
-  paymentMode: 'online' | 'cod' | 'credit';
-  paymentStatus: 'pending' | 'paid' | 'failed';
+  paymentMode: "online" | "cod" | "credit";
+  paymentStatus: "pending" | "paid" | "failed";
   deliveryCharge: number;
   createdAt: string;
   updatedAt: string;
@@ -67,16 +73,28 @@ export interface OrderItem {
 
 // Seller types
 export interface Seller {
-  id: string;
+  id: number;
+
   businessName: string;
   ownerName: string;
+
   email: string;
   phone: string;
-  status: 'active' | 'inactive' | 'pending';
-  moq: number;
-  deliveryCharge: number;
+
+  password?: string; // only used while creating
+
+  gstNumber?: string | null;
+  pan?: string | null;
+
+  status: "active" | "inactive" | "pending";
+  approvalStatus?: string;
+
+  moq?: number;
+  deliveryCharge?: number;
+
   pincodes: string[];
-  createdAt: string;
+
+  createdAt?: string;
 }
 
 // Coupon types
@@ -84,7 +102,7 @@ export interface Coupon {
   id: number;
   code: string;
 
-  discount_type: 'percent' | 'flat';
+  discount_type: "percent" | "flat";
   discount_value: number;
 
   min_order_value: number;
@@ -92,9 +110,8 @@ export interface Coupon {
   start_date: string;
   end_date: string;
 
-  status: 'active' | 'inactive';
+  status: "active" | "inactive";
 }
-
 
 // Banner types
 export interface Banner {
@@ -107,7 +124,6 @@ export interface Banner {
   seller_id?: number | null;
   created_at?: string;
 }
-
 
 // Stats types
 export interface DashboardStats {

@@ -31,14 +31,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          
+
           {/* Seller Routes */}
           <Route path="/seller" element={<SellerDashboard />} />
           <Route path="/seller/catalog" element={<SellerCatalog />} />
           <Route path="/seller/orders" element={<SellerOrders />} />
           <Route path="/seller/pricing" element={<SellerPricing />} />
           <Route path="/seller/settings" element={<SellerSettings />} />
-          
+
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/retailers" element={<AdminRetailers />} />
@@ -46,7 +46,7 @@ const App = () => (
           <Route path="/admin/coupons" element={<AdminCoupons />} />
           <Route path="/admin/banners" element={<AdminBanners />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
-          
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
